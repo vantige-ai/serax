@@ -130,6 +130,34 @@ Domain: Research paper analysis
 Data types: Author names, publication dates, research topics, citation counts
 ```
 
+### Task Description
+**Describe your data extraction objective clearly and specifically:**
+
+Your task description should explain:
+- What type of information you want to extract
+- From what kind of source material
+- What level of detail or analysis you need
+
+**Good Examples:**
+- "Extract competitive positioning, market advantages, and strategic risks from 10K business descriptions"
+- "Identify customer sentiment, product feedback themes, and satisfaction levels from support tickets"
+- "Extract contract terms, liability clauses, and renewal conditions from legal agreements"
+- "Analyze news articles for market impact, sentiment trends, and financial implications"
+
+**Avoid vague descriptions like:**
+- "Extract data from documents"
+- "Get information from text"
+- "Parse business content"
+
+**Insert your task description below:**
+
+[TASK_DESCRIPTION_PLACEHOLDER]
+
+### Data Input Section
+**Insert your domain description and sample data below:**
+
+[DOMAIN_DATA_PLACEHOLDER]
+
 ### Rules
 1. **Character Uniqueness:** Each character must have only ONE meaning in your schema
 2. **Semantic Consistency:** Field characters must match their content type (don't put numbers in text fields)
@@ -150,11 +178,6 @@ Data types: Author names, publication dates, research topics, citation counts
 - The Python parser should handle basic error cases
 - Focus on the specific use case - don't make it generic
 - Test your character choices against your domain content to ensure no collisions
-
-### Data Input Section
-**Insert your domain description and sample data below:**
-
-[DOMAIN_DATA_PLACEHOLDER]
 
 ---
 
