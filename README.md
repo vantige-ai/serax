@@ -57,7 +57,7 @@ When AI generates structured data at scale, traditional formats encounter fundam
 
 **JSON Collision Problems:**
 ```json
-# AI generates content with embedded quotes:
+// AI generates content with embedded quotes:
 {"company": "Johnson "Big Data" Associates", "revenue": "15.2B"}
 //                      ↑ Parser fails completely - unexpected token
 
