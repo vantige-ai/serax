@@ -74,23 +74,23 @@ When AI generates structured data at scale, traditional formats encounter fundam
 ```yaml
 # AI generates times with colons:
 meeting_time: 3:30 PM
+#              ↑ Colon creates phantom key-value pair, breaks parsing
 analysis: Revenue increased year-over-year
-#         ↑ Colon creates phantom key-value pair, breaks parsing
 
 # AI includes URLs:
 website: https://company.com/products
+#             ↑ Colon in URL destroys structure
 data: Key metrics show 15% growth
-#     ↑ Colon in URL destroys structure
 ```
 
 **XML Symbol Conflicts:**
 ```xml
 <!-- AI generates content with XML operators -->
 <analysis>Performance: Revenue > $100M & growing < 5% annually</analysis>
-<!--                            ↑ Mathematical operators break XML entirely -->
+<!--                           ↑ Mathematical operators break XML entirely -->
 
 <description>Use <template> for configuration</description>
-<!--              ↑ Nested brackets interpreted as malformed tags -->
+<!--             ↑ Nested brackets interpreted as malformed tags -->
 ```
 
 **Scale Impact:**
