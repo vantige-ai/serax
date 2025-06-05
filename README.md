@@ -118,92 +118,67 @@ SERAX uses rare Unicode characters that **never appear in business content** as 
 
 **Result:** SERAX provides reliable parsing with built-in semantic validation that detects when AI puts the wrong data types in fields.
 
-## How SERAX Works: Complete Workflow
+## Quick Start
 
-### Step 1: Define Your Data Extraction Task
+### 1. Generate Your Schema (Start Here!)
 
-Let's say you want to extract strategic intelligence from 10K reports (not just numbers, but strategic insights):
+**Don't write parsing code manually.** Use the prompt generator to create everything:
 
-**Your Task:** "Extract strategic positioning, competitive advantages, market opportunities, and risk factors from 10K business descriptions"
+1. Open `serax_prompt_generator_prompt.md`
+2. **Find the Task Description section and replace the placeholder:**
+   
+   Find:
+   ```
+   [TASK_DESCRIPTION_PLACEHOLDER]
+   ```
+   
+   Replace with a detailed, specific task description like:
+   ```
+   Extract strategic competitive intelligence from 10K business descriptions, focusing on forward-looking competitive positioning and operational advantages. Identify specific competitive differentiators that provide measurable market advantages, classify their sustainability (temporary vs. durable), and assess their strategic importance based on market impact potential. 
+   
+   For competitive advantages: Extract concrete operational capabilities, technology assets, market positions, or strategic relationships that differentiate the company. Evaluate whether each advantage is defensible long-term or vulnerable to competitive erosion. Consider network effects, economies of scale, regulatory moats, and brand strength.
+   
+   For market opportunities: Identify untapped markets, emerging trends, or strategic initiatives that could drive future growth. Assess market size potential, competitive intensity, and the company's positioning to capitalize. Distinguish between organic growth opportunities and those requiring acquisitions or partnerships.
+   
+   For strategic risks: Extract forward-looking challenges that could impact competitive position, including regulatory changes, technological disruption, market shifts, or competitive threats. Evaluate probability and potential impact, distinguishing between manageable operational risks and existential strategic threats.
+   
+   Use logical reasoning to classify strategic importance (Critical/High/Medium/Low) based on potential revenue impact, competitive differentiation value, and alignment with core business model. Assess time horizons (Immediate/Short-term/Long-term) based on implementation complexity and market dynamics.
+   ```
 
-**Your Sample Data:**
-```
-We are the world's largest retailer, operating approximately 10,500 stores under 46 banners in 24 countries. Our competitive advantages include our extensive store network, advanced supply chain capabilities, and data-driven customer insights that enable personalized shopping experiences.
-```
+3. **Find the Data Input section and replace the placeholder:**
+   
+   Find:
+   ```
+   [DOMAIN_DATA_PLACEHOLDER]
+   ```
+   
+   Replace with your actual sample data:
+   ```
+   We are the world's largest retailer, operating approximately 10,500 stores under 46 banners in 24 countries. Our competitive advantages include our extensive store network, advanced supply chain capabilities, and data-driven customer insights that enable personalized shopping experiences. We face increasing competition from e-commerce platforms and changing consumer preferences toward online shopping.
+   ```
 
-### Step 2: Generate Your SERAX Schema  
+4. Send the complete updated prompt to any AI model (Claude, GPT-4, etc.)
+5. Get back: schema definition, parsing code, and AI generation prompt
 
-Use the `serax_prompt_generator_prompt.md` file as a prompt to an AI model. **Important**: You must edit the file to replace the placeholder section:
+### 2. Test with Included Examples
 
-**Find this section in the file:**
-```
-[DOMAIN_DATA_PLACEHOLDER]
-```
-
-**Replace it with your specific task and sample data:**
-```
-Task: Extract strategic intelligence from 10K reports
-Sample Data: "We are the world's largest retailer, operating approximately 10,500 stores under 46 banners in 24 countries. Our competitive advantages include our extensive store network, advanced supply chain capabilities, and data-driven customer insights that enable personalized shopping experiences."
-```
-
-**Then send the complete updated prompt to any AI model** (Claude, GPT-4, etc.)
-
-The AI will generate:
-1. **UTF-8 character assignments** that never appear in your data
-2. **Complete schema definition** with validation rules  
-3. **Python parsing code** customized for your fields
-4. **AI generation prompt** to produce SERAX records
-
-### Step 3: Generated Output Example
-
-The AI generates a complete implementation including:
-
-**1. Schema Definition:**
-```python
-strategic_schema = {
-    '⟐': 'CompetitivePosition',
-    '⟑': 'MarketOpportunity', 
-    '⟔': 'RiskFactor',
-    '⊶': 'strategic_element',    # Text descriptions
-    '⊷': 'impact_level',         # High/Medium/Low
-    '⊸': 'time_horizon',         # Short/Medium/Long term
-    '⊹': 'confidence_level',     # Strategic assessment confidence
-    '⊺': 'business_area',        # Operations/Marketing/Finance
-    '⊻': 'priority_rating',      # Critical/Important/Moderate
-    '⊽': 'supporting_evidence',  # Reasoning/justification
-    '⏹': 'terminator'
-}
+```bash
+# See SERAX in action with real data
+python example.py
 ```
 
-**2. Working Parser:**
-```python
-# Example usage:
-record = "⟐⊶Global store network⊷High⊸Long term⊹Confident⊺Operations⊻Critical⊽10,500 locations⏹"
-result = parse_strategic_serax(record)
+This demonstrates parsing financial data with quality validation, hallucination detection, and error recovery.
 
-print(result['record_type'])  # 'CompetitivePosition'
-print(result['fields']['strategic_element'])  # 'Global store network'
-print(result['fields']['impact_level'])  # 'High'
-print(result['fields']['time_horizon'])  # 'Long term'
-```
+### 3. View Multi-Domain Examples
 
-**3. AI Generation Prompt:**
-```
-Extract strategic intelligence using this SERAX format:
-⟐⊶competitive_advantage⊷impact_level⊸time_horizon⊹confidence⊺area⊻priority⊽evidence⏹
-⟑⊶market_opportunity⊷impact_level⊸time_horizon⊹confidence⊺area⊻priority⊽evidence⏹
-⟔⊶risk_factor⊷impact_level⊸time_horizon⊹confidence⊺area⊻priority⊽evidence⏹
+The `sample_data.serax` file shows SERAX across different domains:
+- Financial analysis (company performance, assets, risks)
+- News processing (headlines, metrics, sentiment)  
+- Sales tracking (leads, projects, terms)
+- Legal analysis (contracts, terms, provisions)
 
-Examples:
-⟐⊶Extensive store network⊷High⊸Long term⊹Very confident⊺Operations⊻Critical⊽10,500 stores globally⏹
-⟑⊶Digital transformation⊷Medium⊸Short term⊹Confident⊺Technology⊻Important⊽Growing e-commerce⏹
-```
+Each uses different UTF-8 characters with domain-specific meanings.
 
-### Step 4: Use Generated Assets
-
-1. **Feed the generated prompt to AI models** to extract strategic intelligence in SERAX format
-2. **Use the generated parsing code** to process results with automatic quality validation
-3. **Get semantic validation** that detects when AI generates inappropriate content for each field type
 
 ## Key Features
 
