@@ -234,10 +234,13 @@ SERAX represents a philosophy shift toward AI-native text formats that prioritiz
 ```
 serax/
 ├── README.md                           # This file
-├── SERAX_Specification.md              # Complete technical specification
-├── example.py                          # Python parser with multi-domain schemas
-├── sample_data.serax                   # Multi-domain example data
-└── serax_prompt_generator_prompt.md    # Schema creation guide
+├── documentation/
+│   └── SERAX_Specification.md          # Complete technical specification
+├── examples/
+│   ├── example.py                      # Python parser with multi-domain schemas
+│   └── sample_data.serax               # Multi-domain example data
+└── prompts/
+    └── serax_prompt_generator_prompt.md # Schema creation guide
 ```
 
 ## Quick Start
