@@ -73,9 +73,9 @@ When AI generates structured data at scale, traditional formats encounter fundam
 
 **AI generates mathematical expressions:**
 ```json
-{"message": "Order confirmed\nThank you for your purchase"}
+{"message": "Order confirmed\nThank you for your purchase",}
 ```
-                                 ↑ Literal newline breaks JSON parsing
+                                                              ↑ Trailing comma breaks JSON parsing
 
 
 **YAML Structural Failures:**
