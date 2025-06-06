@@ -56,18 +56,21 @@ SERAX solves the critical problem of AI-generated structured data reliability. W
 When AI generates structured data at scale, traditional formats encounter fundamental reliability issues:
 
 **JSON Collision Problems:**
+
+// AI generates content with embedded quotes:
 ```json
-//// AI generates content with embedded quotes:
-{"company": "Johnson "Big Data" Associates", "revenue": "15.2B"}
-////                      ↑ Parser fails completely - unexpected token
+{"company": "Johnson "Big Data" Associates", "revenue": "15.2B"}```
+//                   ↑ Parser fails completely - unexpected token
 
-//// AI includes file paths with backslashes:
-{"path": "C:\Users\Documents\file.txt", "status": "active"}
-////          ↑ Unescaped backslashes break JSON structure
+// AI includes file paths with backslashes:
+```json
+{"path": "C:\Users\Documents\file.txt", "status": "active"}```
+//          ↑ Unescaped backslashes break JSON structure
 
-//// AI generates mathematical expressions:
-{"analysis": "Revenue > $100M & profit < 5%"}
-////                     ↑ Comparison operators interpreted as markup
+// AI generates mathematical expressions:
+```json
+{"analysis": "Revenue > $100M & profit < 5%"}```
+//                    ↑ Comparison operators interpreted as markup
 ```
 
 **YAML Structural Failures:**
