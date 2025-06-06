@@ -73,9 +73,9 @@ When AI generates structured data at scale, traditional formats encounter fundam
 
 **AI generates mathematical expressions:**
 ```json
-{"analysis": "Revenue > $100M & profit < 5%"}
+{"message": "Order confirmed\nThank you for your purchase"}
 ```
-                          ↑ Comparison operators interpreted as markup
+                                 ↑ Literal newline breaks JSON parsing
 
 
 **YAML Structural Failures:**
