@@ -87,7 +87,7 @@ data: Key metrics show 15% growth
 ```xml
 <!-- AI generates content with XML operators -->
 <analysis>Performance: Revenue > $100M & growing < 5% annually</analysis>
-<!--                           ↑ Mathematical operators break XML entirely -->
+<!--                                   ↑ Mathematical operators break XML entirely -->
 
 <description>Use <template> for configuration</description>
 <!--             ↑ Nested brackets interpreted as malformed tags -->
