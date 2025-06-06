@@ -57,17 +57,17 @@ When AI generates structured data at scale, traditional formats encounter fundam
 
 **JSON Collision Problems:**
 ```json
-// AI generates content with embedded quotes:
+//// AI generates content with embedded quotes:
 {"company": "Johnson "Big Data" Associates", "revenue": "15.2B"}
-//                      ↑ Parser fails completely - unexpected token
+////                      ↑ Parser fails completely - unexpected token
 
-// AI includes file paths with backslashes:
+//// AI includes file paths with backslashes:
 {"path": "C:\Users\Documents\file.txt", "status": "active"}
-//          ↑ Unescaped backslashes break JSON structure
+////          ↑ Unescaped backslashes break JSON structure
 
-// AI generates mathematical expressions:
+//// AI generates mathematical expressions:
 {"analysis": "Revenue > $100M & profit < 5%"}
-//                     ↑ Comparison operators interpreted as markup
+////                     ↑ Comparison operators interpreted as markup
 ```
 
 **YAML Structural Failures:**
