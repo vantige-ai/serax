@@ -367,9 +367,9 @@ The prompt generator creates:
 1. **UTF-8 Character Schema** - Chooses rare characters that never appear in your domain
 ```python
 strategic_schema = {
-    '⟐': 'CompetitiveAdvantage',
-    '⟑': 'MarketOpportunity', 
-    '⟔': 'RiskFactor',
+    '⟐': 'competitive_advantage',
+    '⟑': 'market_opportunity', 
+    '⟔': 'risk_factor',
     '⊶': 'strategic_element',
     '⊷': 'impact_level',
     # ... complete mapping
@@ -380,9 +380,9 @@ strategic_schema = {
 ```python
 def parse_strategic_serax(serax_line):
     schema = {
-        '⟐': 'CompetitiveAdvantage',
-        '⟑': 'MarketOpportunity', 
-        '⟔': 'RiskFactor',
+        '⟐': 'competitive_advantage',
+        '⟑': 'market_opportunity', 
+        '⟔': 'risk_factor',
         '⊶': 'strategic_element',
         '⊷': 'impact_level',
         '⊸': 'time_horizon',
