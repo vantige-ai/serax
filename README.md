@@ -71,7 +71,7 @@ When AI generates structured data at scale, traditional formats encounter fundam
                 ↑ Unescaped backslashes break JSON structure
 
 
-**AI generates mathematical expressions:**
+**AI generates dangling commma:**
 ```json
 {"message": "Order confirmed\nThank you for your purchase",}
 ```
